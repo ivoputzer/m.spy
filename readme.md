@@ -34,10 +34,10 @@ test('calls listeners on event', () => {
 ```
 
 #### spy.called
-`true` if the spy was called at least once.
+Is `true` if the spy was called at least once.
 
 #### spy.notCalled
-`true` if the spy was not called.
+Is `true` if the spy was not called.
 
 #### spy.callCount
 The number of recorded calls.
