@@ -1,4 +1,4 @@
-const { strictEqual } = require('assert')
+const { strictEqual, deepStrictEqual } = require('assert')
 
 test('m.spy', () => {
   const { spy } = require('..')
@@ -7,7 +7,7 @@ test('m.spy', () => {
     strictEqual(typeof spy, 'function')
   })
 
-  test('return value', () => {
+  test('returns spy function', () => {
     test('is callable', () => {
       const fn = spy()
       strictEqual(typeof fn, 'function')
@@ -47,6 +47,19 @@ test('m.spy', () => {
         fn()
         fn()
         strictEqual(fn.callCount, 2)
+      })
+    })
+
+    test('.args', () => {
+      test('defaults to an empty array', () => {
+        deepStrictEqual(spy().args, [])
+      })
+
+      test('contains array of arguments received for every call', () => {
+        const fn = spy()
+        fn(1)
+        fn(2)
+        deepStrictEqual(fn.args, [[1], [2]])
       })
     })
   })
