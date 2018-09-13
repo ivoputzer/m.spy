@@ -39,7 +39,7 @@ test('m.spy', () => {
 
     test('.callCount', () => {
       test('defaults to `0`', () => {
-        strictEqual(spy().callCount, true)
+        strictEqual(spy().callCount, 0)
       })
 
       test('contains the number of recorded calls', () => {
