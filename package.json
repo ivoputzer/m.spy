@@ -1,6 +1,6 @@
 {
   "name": "m.spy",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Ivo von Putzer Reibegg <ivo.putzer@gmail.com>",
   "description": "m(icro)spy is a simple test spy implementation written in es6+",
   "keywords": [

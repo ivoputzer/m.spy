@@ -2,8 +2,8 @@ exports.spy = () => {
   const fn = (...args) => {
     fn.called = true
     fn.notCalled = false
-    fn.callCount++
     fn.args.push(args)
+    fn.callCount = fn.args.length
     fn.calledWith = (...expected) => {
       return fn.args.some(args => {
         return expected.every((expectedArg, i) => expectedArg === args[i])
