@@ -38,3 +38,6 @@ test('calls listeners on event', () => {
 
 #### spy.notCalled
 `true` if the spy was not called.
+
+#### spy.callCount
+The number of recorded calls.
