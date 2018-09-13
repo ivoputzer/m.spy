@@ -13,27 +13,26 @@ test('m.spy', () => {
       equal(typeof fn, 'function')
     })
     test('.called', () => {
-      test('is true if the spy was called at least once', () => {
+      test('defaults to `false`', () => {
+        equal(spy().called, false)
+      })
+
+      test('is `true` if the spy was called at least once', () => {
         const fn = spy()
         fn()
         equal(fn.called, true)
       })
-
-      test('defaults to false', () => {
-        const fn = spy()
-        equal(fn.called, false)
-      })
     })
+
     test('.notCalled', () => {
-      test('is false if the spy was called', () => {
+      test('defaults to `true`', () => {
+        equal(spy().notCalled, true)
+      })
+
+      test('is `false` if the spy was called', () => {
         const fn = spy()
         fn()
         equal(fn.notCalled, false)
-      })
-
-      test('defaults to true', () => {
-        const fn = spy()
-        equal(fn.notCalled, true)
       })
     })
   })

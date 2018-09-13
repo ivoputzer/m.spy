@@ -1,5 +1,5 @@
-exports.spy = function spy () {
-  const fn = function () {
+exports.spy = () => {
+  const fn = () => {
     fn.called = true
     fn.notCalled = false
   }
