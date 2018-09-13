@@ -41,3 +41,6 @@ Is `true` if the spy was not called.
 
 #### spy.callCount
 The number of recorded calls.
+
+#### spy.args
+Array of arguments received, spy.args[0] is an array of arguments received in the first call.
