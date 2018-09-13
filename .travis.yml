@@ -14,9 +14,9 @@ cache:
   directories:
   - $HOME/.npm
 jobs:
-  # allow_failures:
-  # - node_js: 5
-  # - node_js: 4
+  allow_failures:
+  - node_js: 5
+  - node_js: 4
   include:
   - stage: lint
     install: ignore
