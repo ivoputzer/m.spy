@@ -44,3 +44,6 @@ The number of recorded calls.
 
 #### spy.args
 Array of arguments received, spy.args[0] is an array of arguments received in the first call.
+
+#### spy.calledWith(arg1[, arg2[, ...]])
+Returns `true` if spy was called at least once with the provided arguments. Can be used for partial matching, only provided arguments are checked against the actual arguments.

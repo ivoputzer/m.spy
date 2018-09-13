@@ -62,5 +62,17 @@ test('m.spy', () => {
         deepStrictEqual(fn.args, [[1], [2]])
       })
     })
+
+    test('.calledWith', () => {
+      test('defaults to `false`', () => {
+        deepStrictEqual(spy().calledWith(), false)
+      })
+
+      test('is true if spy was called at least once with the provided arguments', () => {
+        const fn = spy()
+        fn(1, 2)
+        deepStrictEqual(fn.calledWith(1, 2), true)
+      })
+    })
   })
 })
