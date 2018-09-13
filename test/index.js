@@ -24,5 +24,17 @@ test('m.spy', () => {
         equal(fn.called, false)
       })
     })
+    test('.notCalled', () => {
+      test('is false if the spy was called', () => {
+        const fn = spy()
+        fn()
+        equal(fn.notCalled, false)
+      })
+
+      test('defaults to true', () => {
+        const fn = spy()
+        equal(fn.notCalled, true)
+      })
+    })
   })
 })
