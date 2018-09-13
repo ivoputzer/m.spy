@@ -12,3 +12,29 @@ m.spy
 [![license](https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge&colorB=007EC6)](https://spdx.org/licenses/MIT)
 [![minzip](https://img.shields.io/bundlephobia/minzip/m.spy.svg?style=for-the-badge)](https://bundlephobia.com/scan-results?packages=m.spy)
 [![downloads](https://img.shields.io/npm/dt/m.args.svg?style=for-the-badge&colorB=007EC6)](https://www.npmjs.com/package/m.spy)
+
+### What is a test spy?
+A test spy is a function that records arguments and thrown exceptions (if any) for all its calls.
+
+### Creating a spy as an anonymous function
+The spy won’t do anything except record information about its calls. A common use case for this type of spy is testing how a function handles a callback:
+
+```javascript
+const {spy} = require('m.spy')
+
+test('calls listeners on event', () => {
+  const callback = spy()
+  const emitter = new EventEmitter()
+
+  emitter.on('event', callback)
+  emitter.emit('event')
+
+  assertTrue(callback.called)
+})
+```
+
+#### spy.called
+`true` if the spy was called at least once.
+
+#### spy.notCalled
+`true` if the spy was not called.
