@@ -1,4 +1,38 @@
 {
   "name": "m.spy",
-  "version": "0.0.0-draft.0"
+  "version": "0.0.1",
+  "author": "Ivo von Putzer Reibegg <ivo.putzer@gmail.com>",
+  "description": "m(icro)spy is a simple test spy implementation written in es6+",
+  "keywords": [
+    "spy",
+    "test",
+    "utils",
+    "m.icro"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "standard": {
+    "global": [
+      "test"
+    ]
+  },
+  "scripts": {
+    "node": "node",
+    "test": "m.test"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "m.test": "0.0.57"
+  },
+  "homepage": "https://github.com/ivoputzer/m.spy#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ivoputzer/m.spy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ivoputzer/m.spy/issues"
+  }
 }
