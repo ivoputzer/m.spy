@@ -1,4 +1,4 @@
-exports.spy = () => {
+exports.spy = (realFn) => {
   const fn = (...args) => {
     fn.called = true
     fn.notCalled = false
@@ -8,6 +8,10 @@ exports.spy = () => {
       return fn.args.some(args => {
         return expected.every((expectedArg, i) => expectedArg === args[i])
       })
+    }
+
+    if (typeof realFn === 'function') {
+      return realFn(...args)
     }
   }
   fn.called = false
