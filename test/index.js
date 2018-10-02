@@ -74,5 +74,25 @@ test('m.spy', () => {
         deepStrictEqual(fn.calledWith(1, 2), true)
       })
     })
+
+    test('returns a spy that wraps the spied function', () => {
+      test('returns the real result', () => {
+        const fn = spy((arg1, arg2) => arg1 + arg2)
+        const returned = fn('a', 'b')
+        strictEqual(returned, 'ab')
+      })
+
+      test('.returned(arg) is true if spied function returns the arg', () => {
+        const fn = spy(() => 'hello')
+        fn()
+        strictEqual(fn.returned('hello'), true)
+      })
+
+      test('.returned(arg) is false if spied function does not return the arg', () => {
+        const fn = spy(() => 'hello')
+        fn()
+        strictEqual(fn.returned('not returned'), false)
+      })
+    })
   })
 })
