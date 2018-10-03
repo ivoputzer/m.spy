@@ -47,3 +47,6 @@ Array of arguments received, spy.args[0] is an array of arguments received in th
 
 #### spy.calledWith(arg1[, arg2[, ...]])
 Returns `true` if spy was called at least once with the provided arguments. Can be used for partial matching, only provided arguments are checked against the actual arguments.
+
+#### spy.returned(arg1)
+Returns `true` if spy returned the provided value at least once. Uses deep comparison for objects and arrays.
