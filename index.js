@@ -1,20 +1,10 @@
-function deepEqual(expected, actual) {
-  let expectedType = typeof expected
-
+function deepEqual (expected, actual) {
   if (!expected || !actual) return false
-  if (expectedType !== typeof actual) return false
+  if (typeof expected !== typeof actual) return false
+  if (typeof expected !== 'object') return expected === actual
 
-  if (expectedType === 'object') {
-    return Object.keys(expected).length === Object.keys(actual).length &&
-      Object.keys(expected).every(key => deepEqual(expected[key], actual[key]))
-  }
-
-  if (expectedType === 'array') {
-    return expected.length === actual.length &&
-           expected.every(exp, index => deepEqual(exp, actual[index]))
-  }
-
-  return expected === actual
+  return Object.keys(expected).length === Object.keys(actual).length &&
+         Object.keys(expected).every(key => deepEqual(expected[key], actual[key]))
 }
 
 exports.spy = (spiedFn) => {
