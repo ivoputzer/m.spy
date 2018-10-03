@@ -89,9 +89,9 @@ test('m.spy', () => {
       })
 
       test('.returned(arg) is true if spied function returns the object arg', () => {
-        const fn = spy(() => { return {name: 'hello'} })
+        const fn = spy(() => { return { name: 'hello' } })
         fn()
-        strictEqual(fn.returned({name: 'hello'}), true)
+        strictEqual(fn.returned({ name: 'hello' }), true)
       })
 
       test('.returned(arg) is true if spied function returns the array arg', () => {
