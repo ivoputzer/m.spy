@@ -88,10 +88,28 @@ test('m.spy', () => {
         strictEqual(fn.returned('hello'), true)
       })
 
+      test('.returned(arg) is true if spied function returns the object arg', () => {
+        const fn = spy(() => { return {name: 'hello'} })
+        fn()
+        strictEqual(fn.returned({name: 'hello'}), true)
+      })
+
+      test('.returned(arg) is true if spied function returns the array arg', () => {
+        const fn = spy(() => ['world', 'hello'])
+        fn()
+        strictEqual(fn.returned(['world', 'hello']), true)
+      })
+
       test('.returned(arg) is false if spied function does not return the arg', () => {
         const fn = spy(() => 'hello')
         fn()
         strictEqual(fn.returned('not returned'), false)
+      })
+
+      test('.returned(arg) is false if spied function returns undefined', () => {
+        const fn = spy(() => undefined)
+        fn()
+        strictEqual(fn.returned(null), false)
       })
     })
   })
