@@ -20,6 +20,8 @@ A test spy is a function that records arguments and thrown exceptions (if any) f
 The spy won’t do anything except record information about its calls. A common use case for this type of spy is testing how a function handles a callback:
 
 ```javascript
+const { strictEqual } = require('assert')
+const EventEmitter = require('events')
 const {spy} = require('m.spy')
 
 test('calls listeners on event', () => {
@@ -29,7 +31,17 @@ test('calls listeners on event', () => {
   emitter.on('event', callback)
   emitter.emit('event')
 
-  assertTrue(callback.called)
+  strictEqual(callback.called, true)
+})
+
+test('wraps the function transparently', () => {
+  const sayHello = () => 'hello'
+  const sayHelloSpy = spy(sayHello)
+
+  const result = sayHelloSpy()
+
+  strictEqual(result, 'hello')
+  strictEqual(sayHelloSpy.returned('hello'), true)
 })
 ```
 
